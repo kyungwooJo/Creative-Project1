@@ -1,0 +1,321 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+.container {
+    min-height: 100vh;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title-info{
+    text-align: center;
+    margin-bottom:50px;
+}
+
+.nav-bg{
+    background-color:cornflowerblue;
+}
+
+.nav-bg .active{
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+.cta {
+    display:inline-block;
+    width: 150px;
+    text-align: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+    color:white;
+    background-color: transparent;
+    border-radius: 10px;;
+    font-size: 1.5rem;
+    text-transform:uppercase;
+    letter-spacing: .1rem;
+    margin-top:10px;
+    margin-bottom:50px;
+    transition: 1s ease;
+    transition-property: color, background-color;
+    background-color:cornflowerblue;
+}
+.cta:hover{
+    color:white;
+    background-color:crimson;
+}
+
+.housing-info-box{
+    width:70%;
+    display:flex;
+    flex-direction: column;
+    margin:0 auto;
+}
+
+.housing-info-box .floor-plan-info{
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    margin:0 auto;
+    text-align: center;
+    margin-top:30px;
+}
+
+.housing-info-box .floor-plan-info a{
+    margin-left: 40px;
+}
+
+.header-img{
+    margin-bottom:50px;
+    margin-top:100px;
+
+}
+
+#provo-header-logo-img{
+    padding-bottom: 50px;
+    padding-top:50px;
+}
+
+.header-img img{
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom:30px;
+    max-width: 1200px;
+    margin:0 auto;
+    margin-top:100px;
+}
+
+.social-icon{
+    margin-bottom:100px;
+}
+
+
+
+.social-icon h2{
+    text-align: center;
+    margin-bottom:30px;
+    margin-top:40px;
+}
+
+.social-icon .social-item{
+    width:fit-content;
+    margin:0 auto;
+}
+
+
+#home-main-header{
+    margin-top:20px;
+    margin-bottom:50px;
+    color:green;
+    text-align: center;
+}
+
+#home-housing-pics{
+   width: 70%;
+   margin: 0 auto;
+   margin-top:50px;
+   margin-bottom:50px;
+
+}
+
+#home-housing-pics img{
+    width:46%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+#home-info{
+    width:80%;
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+#provo-header-logo-img{
+    width:70%;
+    margin: 0 auto;
+}
+
+#provo-branbury{
+    margin-bottom:40px;
+}
+
+#provo-branbury img{
+  width:100%;
+}
+
+#provo-Aspen-Ridge{
+    margin-bottom:40px;
+}
+
+#provo-Aspen-Ridge img{
+  width:100%;
+}
+
+#provo-Haritage-Halls{
+    margin-bottom: 100px;
+}
+
+#provo-Haritage-Halls img{
+    width:100%;
+}
+
+#contact .contact-info h1,
+#contact .contact-info h3{
+    font-size:22px;
+    
+}
+
+#contact .contact-info h1{
+    color:crimson;
+}
+
+
+#contact .section-title{
+    margin-bottom:50px;
+}
+
+#contact .contact-item{
+    margin-bottom:50px;
+}
+
+#contact .icon i{
+    font-size:50px;
+    color:blue;
+    width: fit-content;
+    margin-left: 100px;
+    margin-bottom:30px;
+}
+
+#footer {
+    background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+
+#footer .footer{
+    min-height: 200px;
+    flex-direction:column;
+    padding-top:50px;
+    padding-bottom:10px;
+}
+
+#footer a{
+    font-size:18px;
+}
+
+#footer .brand {
+    color:white;
+    font-weight:500;
+    font-size:1.8rem;
+    letter-spacing: .1rem;
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+#footer .social-icon {
+    display:flex;
+    margin-bottom:30px;
+}
+
+#footer .social-item {
+    height:50px;
+    width:50px;
+    margin: 0 5px;
+}
+
+#footer .social-item img {
+	filter: grayscale(1);
+	transition: .3s ease filter;
+}
+#footer .social-item:hover img {
+	filter: grayscale(0);
+}
+#footer p {
+	color: white;
+	font-size: 1.3rem;
+}
+
+@media screen and (min-width: 960px){
+    
+    .header-img img{
+        width:50%;
+        margin:0 auto;
+    }
+    
+    #home-housing-pics{
+        display: flex;
+
+     }
+     
+     #home-housing-pics img{
+         width:45%;
+         margin-right: 10px;
+         margin-bottom: 10px;
+     }
+
+     .housing-info-box{
+         flex-direction: row;
+     }
+
+     #provo-branbury img{
+        width:35%;
+      }
+
+ 
+     #provo-branbury .floor-plan-info{
+         flex-direction: row;
+         align-items: center;
+         justify-content: space-around;
+         margin-left: 100px;
+     }
+
+      #provo-Aspen-Ridge img{
+        width:35%;
+      }
+
+      #provo-Aspen-Ridge .floor-plan-info{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 100px;
+    }
+
+      #provo-Haritage-Halls img{
+        width:35%;
+    }
+
+    #provo-Haritage-Halls .floor-plan-info{
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        margin-left: 100px;
+    }
+
+   .container{
+        min-height: 40vh;
+    }
+
+    #contact .contact-items{
+        display: flex;
+        width:100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .social-icon{
+        display: flex;
+        width:50%;
+        flex-direction: row;
+        justify-content: center;
+        margin:0 auto;
+        margin-bottom:100px;
+    }
+} 

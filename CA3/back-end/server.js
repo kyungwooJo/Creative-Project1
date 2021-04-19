@@ -4,13 +4,13 @@ const mongoose = require('mongoose');
 
 const app = express();
 
+// parse application/json
+app.use(bodyParser.json());
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
   extended: false
 }));
-
-// parse application/json
-app.use(bodyParser.json());
 
 // connect to the database
 mongoose.connect('mongodb://localhost:27017/scriptureList', {
@@ -18,63 +18,18 @@ mongoose.connect('mongodb://localhost:27017/scriptureList', {
   useUnifiedTopology: true
 });
 
-// Create a scheme for projects
-const scriptureSchema = new mongoose.Schema({
-  book: String,
-  chapter: String,
-  verse: String,
-  topic: String,
-  text: String,	
-});
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
-// Create a model for projects
-const Scripture = mongoose.model('Scripture', scriptureSchema);
-
-// Create a project
-app.post('/api/scripture', async (req, res) => {
-  const scripture = new Scripture({
-    book: req.body.book,
-    chapter: req.body.chapter,
-    verse: req.body.verse,
-    topic: req.body.topic,
-    text: req.body.text	  
-  });
-  try {
-    await scripture.save();
-    res.send(scripture);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(500);
-  }
-});
-
-// Get a list of all projects
-app.get('/api/scripture', async (req, res) => {
-  try {
-    let scriptures = await Scripture.find();
-    res.send(scriptures);
-  } catch (error) {
-    console.log(error);
-    res.sendStatus(500);
-  }
-});
-
-// Edit scripture information
-app.put('/api/scripture/:id', async (req, res) => {
-  try {
-    let scripture = await Scripture.findOne({_id: req.params.id});
-    scripture.book = req.body.book;
-    scripture.chapter = req.body.chapter;
-    scripture.verse = req.body.verse;
-    scripture.topic = req.body.topic;
-    scripture.text = req.body.text;	  
-    scripture.save();
-    res.send(scripture);
-    } catch (error) {
-      console.log(error);
-      res.sendStatus(500);
+const cookieSession = require('cookie-session');
+app.use(cookieSession({
+    name: 'session',
+    keys: ['secretValue'],
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
     }
-});
+}));
+
 
 app.delete('/api/scripture/:id', async (req, res) => {
   try {
@@ -88,8 +43,15 @@ app.delete('/api/scripture/:id', async (req, res) => {
   }
 });
 
+// import the users module and setup its API path
+const users = require("./users.js");
+app.use("/api/users", users.routes);
 
-app.listen(3000, () => console.log('Server listening on port 3000!'))
+// import the scriptures module and setup its API path
+const scriptures = require("./scripture.js");
+app.use("/api/scriptures", scriptures.routes);
+
+app.listen(3001, () => console.log('Server listening on port 3001!'))
 
 
 
